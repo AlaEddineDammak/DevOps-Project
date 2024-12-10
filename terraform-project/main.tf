@@ -92,7 +92,7 @@ resource "aws_key_pair" "deployer_key" {
 }
 
 resource "aws_s3_bucket_object" "private_key_object" {
-  bucket = "enis-terraform-for-state-file-0125-2a0eebb3"
+  bucket = "custom-terraform-state-bucket-123456-9621525d"
   key = "${var.ssh_key_name}.pem" # Use the same name as the key (with .pem extension)
   content                 = tls_private_key.example_ssh_key.private_key_pem
   acl                     = "private"
