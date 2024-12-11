@@ -184,11 +184,11 @@ resource "aws_instance" "public_instance" {
   }
 }
 # Create a DB subnet group
-resource "aws_db_subnet_group" "mydb_subnet_group" {
- name       = "mydb_subnet_group"
+resource "aws_db_subnet_group" "mydb_subnet_group1" {
+ name       = "mydb_subnet_group1"
  subnet_ids = [aws_subnet.public_subnet_1.id, aws_subnet.public_subnet_2.id]
  tags = {
-   Name = "mydb_subnet_group"
+   Name = "mydb_subnet_group1"
  }
 }
 
@@ -202,7 +202,7 @@ resource "aws_db_instance" "mydb" {
  identifier = "mydb"
  username               = "dbuser"          # Master username
  password               = "DBpassword2024"  # Master password
- db_subnet_group_name   = aws_db_subnet_group.mydb_subnet_group.name
+ db_subnet_group_name   = aws_db_subnet_group.mydb_subnet_group1.name
  vpc_security_group_ids = [aws_security_group.web_sg.id]
  publicly_accessible    = true             # Restrict public access
  multi_az               = false             # Single-AZ deployment
