@@ -86,7 +86,7 @@ resource "tls_private_key" "example_ssh_key" {
   rsa_bits  = 2048
 }
 
-resource "aws_key_pair" "deployer_key_v2" {
+resource "aws_key_pair" "deployer_key" {
   key_name   = var.ssh_key_name
   public_key = tls_private_key.example_ssh_key.public_key_openssh
 }
