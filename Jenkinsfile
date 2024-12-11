@@ -19,13 +19,13 @@ pipeline {
             steps {
                 script {
                     dir('terraform-project/remote-backend') {
-                        sh "terraform init -reconfigure"
+                        sh "terraform init"
                         // Apply Terraform configuration
                         sh "terraform apply --auto-approve"
                     }
                     dir('terraform-project') {
                         // Initialize Terraform
-                        sh "terraform init -reconfigure"
+                        sh "terraform init"
                         sh "terraform plan -lock=false"
 
                         // Apply Terraform configuration
